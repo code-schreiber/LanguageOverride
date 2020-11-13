@@ -37,21 +37,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-//TODO merge
-object LocaleHelper {
-
-    fun setLocale(oldContext: Context, language: String): Context {
-        val locale = Locale(language)
-        Locale.setDefault(locale)
-        val configuration = Configuration(oldContext.resources.configuration).apply {
-//            setLayoutDirection(locale)
-            setLocale(locale)
-        }
-        val newContext = oldContext.createConfigurationContext(configuration)
-        return newContext
-    }
-
-}
-
-}
