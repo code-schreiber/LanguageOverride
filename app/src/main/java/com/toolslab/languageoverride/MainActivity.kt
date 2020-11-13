@@ -14,7 +14,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(ActivityMainBinding.inflate(layoutInflater)) {
             setContentView(root)
+            title =
+                resources.getString(R.string.app_name)
+            resourcesLanguageTextView.text =
+                resources.configuration.locale.language
+            currentLanguageTextView.text =
+                resources.getString(R.string.actual_language)
+            actualLanguageTextView.text =
+                LanguageProvider.currentLanguage.languageCode
+            activityMainLanguageToggleButton.isChecked =
+                LanguageProvider.currentLanguage == LanguageProvider.Language.Default
+
+            activityMainLanguageToggleButton.setOnCheckedChangeListener { button, isChecked ->
+                if (isChecked) {
+                    LanguageProvider.set(LanguageProvider.Language.Default)
+                } else {
+                    LanguageProvider.set(LanguageProvider.Language.Other)
+                }
+                button.context.startActivity(Intent(button.context, MainActivity::class.java))
+            }
         }
     }
+
+}
+
+//TODO merge
+object LocaleHelper {
+
+    fun setLocale(oldContext: Context, language: String): Context {
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val configuration = Configuration(oldContext.resources.configuration).apply {
+//            setLayoutDirection(locale)
+            setLocale(locale)
+        }
+        val newContext = oldContext.createConfigurationContext(configuration)
+        return newContext
+    }
+
+}
 
 }
