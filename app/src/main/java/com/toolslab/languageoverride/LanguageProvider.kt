@@ -17,8 +17,4 @@ object LanguageProvider {
     fun setCurrentLanguageToOther() {
         currentLanguage = Language.Other
     }
-
-    fun set(language: Language) {
-        currentLanguage = language
-    }
 }

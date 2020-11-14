@@ -16,24 +16,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        with(ActivityMainBinding.inflate(layoutInflater)) {
-            setContentView(root)
-            title =
-                resources.getString(R.string.app_name)
-            resourcesLanguageTextView.text =
-                resources.configuration.locale.language
-            currentLanguageTextView.text =
-                resources.getString(R.string.actual_language)
-            actualLanguageTextView.text =
-                LanguageProvider.currentLanguage.languageCode
-            activityMainLanguageToggleButton.isChecked =
-                LanguageProvider.currentLanguage == LanguageProvider.Language.Default
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initViews(binding)
+    }
 
-            activityMainLanguageToggleButton.setOnCheckedChangeListener { button, isChecked ->
+    private fun initViews(binding: ActivityMainBinding) {
+        with(binding) {
+            val currentLanguage = LanguageProvider.currentLanguage
+            val isLanguageDefault = currentLanguage == LanguageProvider.Language.Default
+
+            title = resources.getString(R.string.app_name)
+            resourcesLanguageTextView.text = resources.configuration.locale.language
+            currentLanguageTextView.text = resources.getString(R.string.actual_language)
+            actualLanguageTextView.text = currentLanguage.languageCode
+            toggleButton.isChecked = isLanguageDefault
+
+            toggleButton.setOnCheckedChangeListener { button, isChecked ->
                 if (isChecked) {
-                    LanguageProvider.set(LanguageProvider.Language.Default)
+                    LanguageProvider.setCurrentLanguageToDefault()
                 } else {
-                    LanguageProvider.set(LanguageProvider.Language.Other)
+                    LanguageProvider.setCurrentLanguageToOther()
                 }
                 button.context.startActivity(Intent(button.context, MainActivity::class.java))
             }

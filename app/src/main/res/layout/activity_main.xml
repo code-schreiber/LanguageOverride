@@ -64,7 +64,7 @@
         tools:text="Actual language" />
 
     <ToggleButton
-        android:id="@+id/activityMainLanguageToggleButton"
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textOff="to en"
