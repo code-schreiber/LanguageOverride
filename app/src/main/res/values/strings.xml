@@ -3,6 +3,7 @@
     <string name="app_name">Language Override</string>
     <string name="actual_language">en</string>
 
+    <string name="current_resources_language_header" translatable="false">Resources language is set to</string>
     <string name="current_language_header" translatable="false">Current language is set to</string>
     <string name="should_be" translatable="false">and should be</string>
 </resources>

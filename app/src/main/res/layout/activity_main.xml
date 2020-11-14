@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/activityMainCurrentResourcesLanguageHeaderTextView"
+        android:id="@+id/currentResourcesLanguageHeaderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="res is"
+        android:text="@string/current_resources_language_header"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,11 +22,11 @@
         android:textSize="50sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activityMainCurrentResourcesLanguageHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@id/currentResourcesLanguageHeaderTextView"
         tools:text="Current resources language" />
 
     <TextView
-        android:id="@+id/activityMainCurrentLanguageHeaderTextView"
+        android:id="@+id/currentLanguageHeaderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/current_language_header"
@@ -41,11 +41,11 @@
         android:textSize="50sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activityMainCurrentLanguageHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@id/currentLanguageHeaderTextView"
         tools:text="Current language" />
 
     <TextView
-        android:id="@+id/activityMainCurrentLanguageShouldBeTextView"
+        android:id="@+id/currentLanguageShouldBeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/should_be"
@@ -60,7 +60,7 @@
         android:textSize="50sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activityMainCurrentLanguageShouldBeTextView"
+        app:layout_constraintTop_toBottomOf="@id/currentLanguageShouldBeTextView"
         tools:text="Actual language" />
 
     <ToggleButton
