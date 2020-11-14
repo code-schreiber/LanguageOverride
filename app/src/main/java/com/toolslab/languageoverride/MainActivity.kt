@@ -2,13 +2,17 @@ package com.toolslab.languageoverride
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.toolslab.languageoverride.databinding.ActivityMainBinding
-import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
+
+    override fun attachBaseContext(context: Context) {
+        val newLanguage = LanguageProvider.currentLanguage.languageCode
+        val newContext = LocaleChanger.changeLocale(context, newLanguage)
+        super.attachBaseContext(newContext)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,5 +39,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
