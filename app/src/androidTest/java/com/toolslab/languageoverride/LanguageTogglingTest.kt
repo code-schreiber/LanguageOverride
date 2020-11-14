@@ -36,7 +36,7 @@ class LanguageTogglingTest {
         val textView = onView(withId(R.id.resourcesLanguageTextView))
         textView.check(matches(withText(Default.languageCode)))
 
-        onView(withId(R.id.activityMainLanguageToggleButton)).perform(click())
+        onView(withId(R.id.toggleButton)).perform(click())
 
         textView.check(matches(withText(Other.languageCode)))
     }
@@ -46,7 +46,7 @@ class LanguageTogglingTest {
         val textView = onView(withId(R.id.currentLanguageTextView))
         textView.check(matches(withText(Default.languageCode)))
 
-        onView(withId(R.id.activityMainLanguageToggleButton)).perform(click())
+        onView(withId(R.id.toggleButton)).perform(click())
 
         textView.check(matches(withText(Other.languageCode)))
     }
@@ -56,7 +56,7 @@ class LanguageTogglingTest {
         val textView = onView(withId(R.id.actualLanguageTextView))
         textView.check(matches(withText(Default.languageCode)))
 
-        onView(withId(R.id.activityMainLanguageToggleButton)).perform(click())
+        onView(withId(R.id.toggleButton)).perform(click())
 
         textView.check(matches(withText(Other.languageCode)))
     }

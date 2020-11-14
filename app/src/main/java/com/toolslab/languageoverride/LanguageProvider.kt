@@ -7,7 +7,7 @@ object LanguageProvider {
         Other("bez"),
     }
 
-    var currentLanguage = Language.Other
+    var currentLanguage = Language.Default
         private set
 
     fun setCurrentLanguageToDefault() {
